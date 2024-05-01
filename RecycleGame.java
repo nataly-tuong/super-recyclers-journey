@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.InputMismatchException; //https://stackoverflow.com/questions/16816250/java-inputmismatchexception
+import java.util.concurrent.TimeUnit; //Use time units instead of milliseconds only
 
 public class RecycleGame {
   static Scanner input = new Scanner(System.in); //Scanner to receive input
@@ -49,6 +50,7 @@ public class RecycleGame {
 
 	do { //Only accepts proper integer input and rejects string input
 	try {
+      wait(1);
     	choice = input.nextInt(); //Store the difficulty the player wants to do
     	switch(choice) {
         	case 1:
@@ -94,6 +96,7 @@ public class RecycleGame {
 	System.out.println("This message is displayed when " +
                    	"you run this program with -help " +
                    	"option.");
+  System.exit(1);
   }
 
   /*
@@ -105,6 +108,7 @@ public class RecycleGame {
   public static String getPlayerName(){
 	if (!hasName) { //Checks if the player already has a name
   	dialogue(1,"Hello, what is your name?"); //Ask for the player's name
+    wait(1);
   	playerName = input.nextLine(); //Stores the player's name
 
   	while(playerName.equals("")) { //The program will not continue unless a valid name is given
@@ -124,11 +128,20 @@ public class RecycleGame {
   is for the player. The second parameter must be a string that the character will say.
   */
   public static void dialogue(int character, String dialogue) { //Method for dialogue
+  wait(1);
+
 	if (character==1) //Checks if dialogue is for Super Recycler
   	System.out.println(superRecycler+dialogue);
 	else if (character==2) //Checks if dialogue is for Pollution Wizard
   	System.out.println(pollutionWizard+dialogue);
 	else //Defaults to dialogue for player
   	System.out.println(getPlayerName()+": "+dialogue);
+  }
+
+  public static void wait(int seconds) {
+    try { //https://coderanch.com/t/672865/java/making-console-program-pause
+      TimeUnit.SECONDS.sleep(seconds);
+    } catch (InterruptedException ie) {
+    }
   }
 }
