@@ -1,5 +1,5 @@
-# Recycle Game
-Welcome to **Recycle Game**, an educational command-line adventure that teaches proper recycling practices! Help Super-Recycler defeat Dr. Pollution Wizard by correctly sorting recyclable and non-recyclable items.
+# Super-Recycler's Journey
+Welcome to **Super-Recycler's Journey**, an educational command-line adventure that teaches proper recycling practices! Help Super-Recycler defeat Dr. Pollution Wizard by correctly sorting recyclable and non-recyclable items.
 
 ---
 
